@@ -2,7 +2,6 @@
 console.log("Shoppinglist")
 
     let getul = document.getElementById("list")
-    let ulCount = getul.childElementCount
 
 function createLi(item, itemClass){
     let newLi = document.createElement("li")
@@ -14,15 +13,25 @@ function createLi(item, itemClass){
     return newLi
 }
 
-function addLi(id, li){
+function addLi(li){
     let liToAdd = li
+    let id = getul.childElementCount
+
     liToAdd.setAttribute("id", id)
 
     getul.append(liToAdd)
 }
 
-let li1 =createLi("Ford Truck", "unhealthy")
+function changeClass(id, itemClass){
+    let liToChange = document.getElementById(id)
+
+    liToChange.setAttribute("class", itemClass)
+}
+
+let li1 = createLi("Ford Truck", "unhealthy")
 let li2 = createLi("Juice", "healthy")
 
-addLi(ulCount, li1)
-addLi(ulCount, li2)
+addLi(li1)
+addLi(li2)
+
+changeClass(3, "pisskriss")
