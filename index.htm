@@ -11,9 +11,7 @@
   <h2>Shoppinglist</h2>
   <div>
     <ul id="list">
-      <li id="0" class="unhealthy">Marshmallows</li>
       <li id="1" class="healthy">Cashew nuts</li>
-      <li id="2" class="unhealthy">Beer</li>
       <li id="3" class="healthy">Apples</li>
     </ul>
   </div>
@@ -21,7 +19,19 @@
     <h2>Shoppinglist UNHEALTHY</h2>
     
     <ul id="listUnhealthy">
+      <li id="2" class="unhealthy">Beer</li>
+      <li id="0" class="unhealthy">Marshmallows</li>
     </ul>
+  </div>
+
+  <div>
+    <label for="addItemInput">Add Item:</label>
+    <input type="text" id="addItemInput">
+    <select name="Food Class" id="foodClass">
+      <option value="healthy">healthy</option>
+      <option value="unhealthy">unhealthy</option>
+    </select>
+    <button id="addItemBTN">Add item</button>
   </div>
   
   <script src="js/index.js"></script>
