@@ -2,6 +2,20 @@
 console.log("Shoppinglist")
 
     let getul = document.getElementById("list")
+    let getUnhealthyList = document.getElementById("listUnhealthy")
+    let addButton = document.getElementById("addItemBTN")
+
+addButton.addEventListener("click", () =>{
+    let item = document.getElementById("addItemInput").value
+    let itemClass = document.getElementById("foodClass").value
+
+    let newLi = createLi(item, itemClass)
+
+    addLi(newLi)
+
+    let itemInput = document.getElementById("addItemInput")
+    itemInput.value = ""
+})
 
 function createLi(item, itemClass){
     let newLi = document.createElement("li")
@@ -15,11 +29,19 @@ function createLi(item, itemClass){
 
 function addLi(li){
     let liToAdd = li
-    let id = getul.childElementCount
+    let id = getCount()
+    let itemClass = li.getAttribute("class")
 
     liToAdd.setAttribute("id", id)
 
-    getul.append(liToAdd)
+    if(itemClass == "healthy")
+    {
+        getul.append(liToAdd)
+    }
+    else
+    {
+        getUnhealthyList.append(liToAdd)
+    }
 }
 
 function changeClass(id, itemClass){
@@ -28,10 +50,27 @@ function changeClass(id, itemClass){
     liToChange.setAttribute("class", itemClass)
 }
 
-let li1 = createLi("Ford Truck", "unhealthy")
-let li2 = createLi("Juice", "healthy")
+function deleteLi(id){
+    let liToDelete = document.getElementById(id)
 
-addLi(li1)
-addLi(li2)
+    if(liToDelete != null)
+    {
+    getul.removeChild(liToDelete)
+    }
+}
 
-changeClass(3, "pisskriss")
+function changeText(id, text){
+    let liToChange = document.getElementById(id)
+
+    liToChange.textContent = text
+}
+
+function moveUnhealthy(){
+    let unhealthyItems = document.getElementsByClassName("unhealthy")
+    let unhealthyList = document.getElementById("listUnhealthy")
+}
+
+function getCount(){
+    let lastID = parseInt(getul.lastElementChild.getAttribute("id"))
+    return lastID+1
+}
