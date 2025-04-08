@@ -1,7 +1,7 @@
 //Write your Javascript code here
 console.log("Shoppinglist")
 
-    let getul = document.getElementById("list")
+    let getul = document.getElementById("listHealthy")
     let getUnhealthyList = document.getElementById("listUnhealthy")
     let addButton = document.getElementById("addItemBTN")
 
@@ -63,11 +63,6 @@ function changeText(id, text){
     let liToChange = document.getElementById(id)
 
     liToChange.textContent = text
-}
-
-function moveUnhealthy(){
-    let unhealthyItems = document.getElementsByClassName("unhealthy")
-    let unhealthyList = document.getElementById("listUnhealthy")
 }
 
 function getCount(){
